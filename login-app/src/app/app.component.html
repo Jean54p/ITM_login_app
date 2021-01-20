@@ -1,0 +1,40 @@
+<!-- nav 
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/">Home</a>
+      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+</nav> -->
+
+<!-- main app container -->
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-6 offset-sm-3">
+               <!-- <alert></alert> -->
+              <router-outlet></router-outlet>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- credits -->
+<div class="text-center">
+  <p>
+      <a>Angular Login App - Profe pora paseme :c </a>
+  </p>
+  <p>
+      <a>Jean Paulo Ochoa Rodriguez</a>
+  </p>
+</div>
+
+<!-- <div style="text-align: center;">
+  <h1>Hi</h1>
+</div>
+<nav>
+  <a routerLink="/home" routerLinkActive="active">Home</a><br>
+  <a routerLink="/login" routerLinkActive="active">Login</a><br>
+  <a routerLink="/register" routerLinkActive="active">Register</a>
+</nav>
+
+<router-outlet></router-outlet> -->
