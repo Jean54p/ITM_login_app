@@ -3,10 +3,10 @@ const express = require('express');
 const app = express();
 
 const hostname = '127.0.0.1'; // o localhost
-const port = 3000;
+const port = process.env.port || 3000;
 
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.send('Hello World!!!');
     //console.log(__dirname)
     //res.sendFile(__dirname + '');
 });
@@ -19,6 +19,7 @@ app.get('/login', (req, res) => {
     res.send('PROCESANDO LOGIN...');
 });
 
+// PORT
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`);
 });
