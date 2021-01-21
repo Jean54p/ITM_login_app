@@ -1,1 +1,19 @@
-<p>login works!</p>
+
+<!-- <form (submit)="loginUser($event)">
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <input type="submit" value="Submit">
+</form> -->
+
+<div class="login-page">
+    <div class="form">
+      <form class="login-form" (submit)="loginUser($event)">
+        <input type="text" placeholder="username" id="username">
+        <input type="password" placeholder="password" id="password">
+        <button>login</button>
+        <p class="message">Not registered? <a href="#">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+
+  

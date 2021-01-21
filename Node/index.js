@@ -1,23 +1,37 @@
 
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
-const hostname = '127.0.0.1'; // o localhost
-const port = process.env.port || 3000;
+const authRoutes = require('./routes/auth');
+const errorController = require('./controllers/error');
 
-app.get('/', (req, res) => {
-    res.send('Hello World!!!');
-    //console.log(__dirname)
-    //res.sendFile(__dirname + '');
-});
+//const hostname = '127.0.0.1'; // o localhost
+const port = process.env.PORT || 3000;
 
-app.get('/index', (req, res) => {
-    res.redirect('/');
-});
+app.use(bodyParser.json());
 
-app.get('/login', (req, res) => {
-    res.send('PROCESANDO LOGIN...');
-});
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader(
+      'Access-Control-Allow-Methods',
+      'GET, POST, PUT, DELETE, OPTIONS'
+    );
+    res.setHeader(
+      'Access-Control-Allow-Headers',
+      'Content-Type, Accept, X-Custom-Header, Authorization'
+    );
+    if (req.method === 'OPTIONS') {
+      return res.status(200).end();
+    }
+    next();
+  });
+
+app.use('/auth', authRoutes);
+
+app.use(errorController.get404);
+
+app.use(errorController.get500);
 
 // PORT
 app.listen(port, () => {
