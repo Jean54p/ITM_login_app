@@ -1,6 +1,6 @@
 {
   "host": "localhost",
   "user": "root",
-  "database": "posts",
-  "password": "password"
+  "database": "proyectoweb",
+  "password": "12345"
 }
