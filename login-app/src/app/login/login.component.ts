@@ -1,6 +1,7 @@
-import { AuthService } from './../_services/auth.service';
 import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../_services/auth.service';
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 
 @Component({
@@ -10,19 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginForm: FormGroup;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.loginForm = this.createFormGroup();
   }
 
-  loginUser(event) {
-    event.preventDefault()
-    const target = event.target
-    const username = target.querySelector('#username').value
-    const password = target.querySelector('#password').value
-
-    //this.Auth.getUserDetails(username, password)
-    console.log(username, password)
+  createFormGroup(): FormGroup {
+    return new FormGroup({
+      email: new FormControl("", [Validators.required, Validators.email]),
+      password: new FormControl("", [Validators.required, Validators.minLength(7)]),
+    });
   }
 
+  login() {
+    this.authService
+    .login(this.loginForm.value.email, this.loginForm.value.password
+      .suscribe());
+  }
 }

@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const cors = require('cors');
 
 const authRoutes = require('./routes/auth');
 const errorController = require('./controllers/error');
@@ -11,7 +12,9 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
+app.use(cors());
+
+/*app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader(
       'Access-Control-Allow-Methods',
@@ -25,7 +28,7 @@ app.use((req, res, next) => {
       return res.status(200).end();
     }
     next();
-  });
+  });*/
 
 app.use('/auth', authRoutes);
 

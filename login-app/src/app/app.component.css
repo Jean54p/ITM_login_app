@@ -1,0 +1,22 @@
+.container{
+    margin: 100px 10%;
+}
+
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 64px;
+    background-color: #4CAF50;
+}
+
+a {
+    text-decoration: none;
+}
+
+.active-link {
+    color: white;
+}
+
+span {
+    margin-left: 24px;
+}

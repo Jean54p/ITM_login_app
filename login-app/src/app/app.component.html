@@ -9,9 +9,35 @@
 <!-- main app container -->
 
 <!-- <alert></alert> -->
-<router-outlet></router-outlet>
+<div class="navigation">
+  <mat-toolbar>
+    <span>
+      <a routerLink="/">
+        <span>Simiple Login</span>
+      </a>
+    </span>
+    <span>
+      <a routerLinkActive="active-link" routerLink="/admin">
+        <span>Admin</span>
+      </a>
+      <a routerLinkActive="active-link" routerLink="/login">
+        <span>Login</span>
+      </a>
+      <a routerLinkActive="active-link" routerLink="/signup">
+        <span>Signup</span>
+      </a>
+    </span>
+  </mat-toolbar>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="footer">
+  <button class="btn btn-danger">Prueba boton</button>
+</div>
  
-<button class="btn btn-danger">Prueba boton</button>
 
 <!-- credits 
 <div class="text-center">
